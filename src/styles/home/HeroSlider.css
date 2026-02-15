@@ -1,0 +1,240 @@
+.hero-slider {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20px;
+  margin-top: 36px; /* Space for your Topbar */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.hero-slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+
+.hero-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  padding: 0 5%;
+}
+
+/* Theme Colors */
+.theme-red { --accent: #ff4757; --accent-hover: #ff3344; }
+.theme-blue { --accent: #3742fa; --accent-hover: #2f36d0; }
+.theme-purple { --accent: #a55eea; --accent-hover: #8e44ad; }
+
+/* Giant Background Text */
+.hero-watermark {
+  position: absolute;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  user-select: none;
+  z-index: 1;
+  letter-spacing: -5px;
+  text-transform: uppercase;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.hero-brand {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f3542;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 800;
+  color: #1e272e;
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.hero-description {
+  font-size: 16px;
+  color: #57606f;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.hero-button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Container */
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.hero-image {
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.hero-slide.active .hero-image {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Dots Navigation */
+.hero-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.hero-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.hero-dot.active {
+  background: #ff4757;
+  border-color: #ff4757;
+  transform: scale(1.2);
+}
+
+.hero-dot:hover {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero-slider {
+    height: 500px;
+  }
+  
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  .hero-watermark {
+    font-size: 100px;
+    opacity: 0.2;
+  }
+  
+  .hero-image {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-watermark {
+    font-size: 60px;
+  }
+  
+  .hero-button {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,286 @@
+.discount-section {
+  padding: 3rem 0;
+  background: transparent; /* Or match your page bg */
+}
+
+.discount-banner {
+  position: relative;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: visible; /* Important for floating image */
+  min-height: 320px;
+  box-shadow: 0 20px 50px -10px rgba(239, 68, 68, 0.4);
+}
+
+/* Left Side */
+.discount-left {
+  flex: 1;
+  z-index: 10;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.discount-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.discount-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.discount-date {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Center Image - Floating Effect */
+.discount-image-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+.discount-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+  animation: floatAnimation 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.image-shadow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: shadowAnimation 3s ease-in-out infinite;
+}
+
+/* Right Side */
+.discount-right {
+  flex: 1;
+  text-align: right;
+  z-index: 10;
+  max-width: 300px;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.product-model {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.sale-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 1rem 0;
+  line-height: 1;
+}
+
+.sale-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.shop-btn {
+  background: white;
+  color: #dc2626;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shop-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: #f9fafb;
+}
+
+/* Decorative Background Circles */
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.circle-1 {
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  right: 10%;
+}
+
+.circle-2 {
+  width: 150px;
+  height: 150px;
+  bottom: -50px;
+  left: 5%;
+}
+
+/* Animations */
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+@keyframes shadowAnimation {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0.15;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .discount-banner {
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+    padding-bottom: 4rem;
+  }
+
+  .discount-image-wrapper {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 250px;
+    height: 250px;
+    margin: 2rem auto;
+    order: 2;
+    pointer-events: auto;
+  }
+
+  .discount-left {
+    order: 1;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .discount-right {
+    order: 3;
+    text-align: center;
+    max-width: 100%;
+    animation: fadeIn 0.8s ease-out 0.2s backwards;
+  }
+
+  .discount-title {
+    font-size: 3rem;
+  }
+
+  .sale-title {
+    font-size: 2.5rem;
+  }
+
+  .decoration-circle {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .discount-title {
+    font-size: 2.5rem;
+  }
+
+  .sale-title {
+    font-size: 2rem;
+  }
+
+  .discount-image-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .shop-btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dark mode support */
+.dark .discount-section {
+  background: transparent;
+}

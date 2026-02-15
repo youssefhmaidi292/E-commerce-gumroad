@@ -1,0 +1,13 @@
+:root {
+  --primary: #f42c37;
+  --secondary: #f42c37;
+  --brand-yellow: #fdc62e;
+  --brand-green: #2dcc6f;
+  --brand-blue: #1376f4;
+  --brand-white: #eeeeee;
+}
+
+
+body {
+  padding-top: 36px; /* same as topbar height */
+}

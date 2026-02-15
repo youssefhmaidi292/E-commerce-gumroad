@@ -1,0 +1,25 @@
+/* ===== LOGO 3D EFFECT ===== */
+.logo-wrapper {
+  perspective: 1000px;
+}
+
+.logo-3d {
+  display: inline-block;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.logo-3d:hover {
+  transform: rotateY(360deg) rotateX(15deg) scale(1.05);
+}
+
+/* ===== MENU LINKS HOVER ===== */
+.menu-link {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  color: var(--primary);
+  transform: scale(1.15);
+}
