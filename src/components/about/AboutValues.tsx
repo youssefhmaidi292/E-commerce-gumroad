@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../styles/about/AboutValues.css'
 
 const values = [

@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../styles/about/MissionVision.css'
 
 function MissionVision() {

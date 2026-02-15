@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../styles/home/Discount.css'
 // Import your image - adjust path based on your structure
 import discount from '../../assets/discount.png'

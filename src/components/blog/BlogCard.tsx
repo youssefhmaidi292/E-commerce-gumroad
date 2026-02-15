@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Blog } from '../../data/blogs'
 import '../../styles/blog/BlogCard.css'

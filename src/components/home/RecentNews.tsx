@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../styles/home/RecentNews.css'
 
 import news1 from '../../assets/news/news1.jpg'

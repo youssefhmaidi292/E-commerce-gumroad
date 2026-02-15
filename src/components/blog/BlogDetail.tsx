@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { getBlogById, getRelatedBlogs } from '../../data/blogs'
 import BlogCard from '../../components/blog/BlogCard'

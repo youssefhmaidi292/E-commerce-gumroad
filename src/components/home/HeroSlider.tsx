@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import  { useState, useEffect, useCallback } from 'react';
 import '../../styles/home/HeroSlider.css';
 
 import hero from '../../assets/HeroSlider/hero.png';

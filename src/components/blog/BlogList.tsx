@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { blogs, getFeaturedBlogs } from '../../data/blogs'
 import BlogCard from '../../components/blog/BlogCard'
 import '../../styles/blog/BlogList.css'

@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../styles/home/HappyHours.css'
 import happyhourImg from '../../assets/happyhour.png'
 
