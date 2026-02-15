@@ -1,12 +1,22 @@
-import  { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import '../../styles/home/HeroSlider.css';
 
 import hero from '../../assets/HeroSlider/hero.png';
 import hero1 from '../../assets/HeroSlider/hero1.png';
 import hero2 from '../../assets/HeroSlider/hero2.png';
 
+interface Slide {
+  id: number;
+  brand: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  buttonText: string;
+  image: string;
+  theme: string;
+}
 
-const slides = [
+const slides: Slide[] = [
   {
     id: 1,
     brand: 'Beats Solo',
@@ -17,7 +27,7 @@ const slides = [
     image: hero,
     theme: 'red'
   },
-   {
+  {
     id: 2,
     brand: 'Oculus Quest',
     title: 'Virtual Reality',
@@ -37,51 +47,49 @@ const slides = [
     image: hero2,
     theme: 'blue'
   }
- 
 ];
 
+function HeroSlider(): JSX.Element {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-function HeroSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const nextSlide = useCallback((): void => {
+    setCurrentSlide((prev: number) => (prev + 1) % slides.length);
   }, []);
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number): void => {
     setCurrentSlide(index);
   };
 
-  // Auto-scroll
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000); // Change slide every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <div 
+    <div
       className="hero-slider"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      <div 
+      <div
         className="hero-slider-track"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide, index) => (
-          <div 
-            key={slide.id} 
-            className={`hero-slide theme-${slide.theme} ${index === currentSlide ? 'active' : ''}`}
+        {slides.map((slide: Slide, index: number) => (
+          <div
+            key={slide.id}
+            className={`hero-slide theme-${slide.theme} ${
+              index === currentSlide ? 'active' : ''
+            }`}
           >
-            {/* Background Watermark Text */}
             <div className="hero-watermark">{slide.subtitle}</div>
-            
+
             <div className="hero-content">
               <div className="hero-text">
                 <span className="hero-brand">{slide.brand}</span>
@@ -91,10 +99,10 @@ function HeroSlider() {
                   {slide.buttonText}
                 </button>
               </div>
-              
+
               <div className="hero-image-container">
-                <img 
-                  src={slide.image} 
+                <img
+                  src={slide.image}
                   alt={slide.title}
                   className="hero-image"
                 />
@@ -104,9 +112,8 @@ function HeroSlider() {
         ))}
       </div>
 
-      {/* Navigation Dots */}
       <div className="hero-dots">
-        {slides.map((_, index) => (
+        {slides.map((_, index: number) => (
           <button
             key={index}
             className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
