@@ -49,15 +49,15 @@ const slides: Slide[] = [
   }
 ];
 
-function HeroSlider(): JSX.Element {
+function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  const nextSlide = useCallback((): void => {
-    setCurrentSlide((prev: number) => (prev + 1) % slides.length);
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, []);
 
-  const goToSlide = (index: number): void => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 
@@ -81,7 +81,7 @@ function HeroSlider(): JSX.Element {
         className="hero-slider-track"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide: Slide, index: number) => (
+        {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`hero-slide theme-${slide.theme} ${
@@ -113,7 +113,7 @@ function HeroSlider(): JSX.Element {
       </div>
 
       <div className="hero-dots">
-        {slides.map((_, index: number) => (
+        {slides.map((_, index) => (
           <button
             key={index}
             className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
