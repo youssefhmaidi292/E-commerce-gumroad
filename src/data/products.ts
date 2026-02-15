@@ -1,5 +1,4 @@
 // src/data/products.ts
-
 import product1 from '../assets/products/product1.jpg'
 
 export interface Product {
